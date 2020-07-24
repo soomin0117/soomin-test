@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary</title>
+</head>
+<body>
+    <h1 align="center">나의 일기장</h1><hr>
+    {% for item in diary %}
+        <h3>제목: {{item.title}}</h3><br>
+        <div align="right"><b>{{item.pub_date}}</b></div> <br>
+        {{item.slice}} ... <a href="{% url 'detail' item.id %}">더보기</a> <br><hr>
+    {% endfor %}
+</body>
+</html>

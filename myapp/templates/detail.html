@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 일기장</title>
+</head>
+<body>
+    <hr>
+    <h1 align="center">{{diary_detail.title}}</h1><br>
+    <div align="right"><b>{{diary_detail.pub_date}}</b></div><br>
+    {{diary_detail.body}}<br><hr><br>
+    <div align="center">
+        {% if diary_detail.id > 1 %}
+            <a href="{% url 'prev' diary_detail.id %}">[이전 일기]</a> 
+        {% endif %}
+        <a href="{% url 'main' %}">[목록으로]</a> 
+        {% if diary_detail.id < total %} 
+            <a href="{% url 'next' diary_detail.id %}">[다음 일기]</a>
+        {% endif %}
+    </div>
+</body>
+</html>
